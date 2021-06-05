@@ -13,21 +13,12 @@ import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
 
-function App() {
-  return (
-    <div className="App">
-      {/* <Switch>
-        <Route exact path={PATHS.HOMEPAGE} component={HomePage} />
-      </Switch> */}
-      <Map/>
-    </div>
-  );
-}
 
-class Apps extends React.Component {
+
+class App extends React.Component {
   state = {
     user: null,
-    isLoading: true,
+    isLoading: false,
   };
 
   componentDidMount = () => {
@@ -94,8 +85,10 @@ class Apps extends React.Component {
     }
 
     return (
+      
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
+          <Map/>
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
