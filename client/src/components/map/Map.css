@@ -1,7 +1,20 @@
-map {
+Map {
+  margin: 0;
+  padding: 0;
+}
+
+.card{
+  width: 250px;
+  height: 250px;
   display: flex;
-  padding: 1em;
+  flex-direction:column;
   justify-content: space-around;
-  resize: 500px;
-  width: min-content;
+}
+
+label {
+  width: max-content;
+  color: tomato;
+  font-size: 13px;
+  border-bottom: 0.5px solid tomato;
+  
 }
