@@ -5,14 +5,14 @@ import ReactMapGL from 'react-map-gl';
 
 function Map() {
   const [viewport, setViewport] = useState({
-    width: "100vw",
-    height: "100vh",
+    width: "50vw",
+    height: "50vh",
     latitude: 37.7577,
     longitude: -95.7129,
     zoom: 4
   });
   return (
-    <div className="App">
+    <div className="map">
       <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}

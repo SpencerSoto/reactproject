@@ -1,0 +1,7 @@
+map {
+  display: flex;
+  padding: 1em;
+  justify-content: space-around;
+  resize: 500px;
+  width: min-content;
+}
