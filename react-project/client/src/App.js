@@ -1,16 +1,16 @@
 import React from "react";
 import { Switch } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "../../../client/src/components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import LogIn from "./pages/LogIn";
-import ProtectedPage from "./pages/ProtectedPage";
+import ProtectedPage from "../../../client/src/pages/ProtectedPage";
 import Signup from "./pages/Signup";
-import NormalRoute from "./routing-components/NormalRoute";
-import ProtectedRoute from "./routing-components/ProtectedRoute";
+import NormalRoute from "../../../client/src/routing-components/NormalRoute";
+import ProtectedRoute from "../../../client/src/routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
-import * as PATHS from "./utils/paths";
-import * as CONSTS from "./utils/consts";
+import * as PATHS from "../../../client/src/utils/paths";
+import * as CONSTS from "../../../client/src/utils/consts";
 
 class App extends React.Component {
   state = {
@@ -19,6 +19,7 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
+    localStorage.setItem("myCat", "Tom");
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
