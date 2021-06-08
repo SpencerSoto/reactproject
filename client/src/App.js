@@ -12,6 +12,9 @@ import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
+import Banner from "./components/Banner/Banner";
+import About from "./components/About/About";
+
 
 
 
@@ -88,7 +91,9 @@ class App extends React.Component {
       
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
+          <Banner/>
           <Map/>
+          <About/>
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
