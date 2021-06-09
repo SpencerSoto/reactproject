@@ -6,6 +6,7 @@ class About extends Component {
     render() {
         return (
             <section className='container-about'>
+            <br></br>
             <h1>TravelBuds</h1>
             <br></br>
             <h3>Our Mission</h3>
@@ -16,7 +17,7 @@ class About extends Component {
             Ready to run the Paris Marathon, or run with the Bulls in Pamplona?  Matt ran those, lived to tell about it, and he is happy to share his experiences in support of your preparation.
             </p>
             <p>TravelBuds is your community to share, prepare, and dare you to experience all of your life's must-see journeys.  Vamanos!</p>
-
+            <br></br>
 
             </section>
         )

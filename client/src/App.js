@@ -14,7 +14,7 @@ import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
 import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
-
+import JourneyLog from "./components/JourneyLog/JourneyLog";
 
 
 
@@ -115,6 +115,7 @@ class App extends React.Component {
             user={this.state.user}
           />
         </Switch>
+        <JourneyLog/>
       </div>
     );
   }
