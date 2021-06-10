@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import { Room, Star } from "@material-ui/icons";
 import axios from "axios";
+import {format} from "timeago.js"
 import "./Map.css";
 
 
@@ -47,18 +48,18 @@ function Map() {
           >
           <Room style={{fontSize:viewport.zoom * 7, color:"slateblue" }}/>
         </Marker>
-        {/* <Popup
-          latitude={40.7128}
-          longitude={-74.0060}
+        <Popup
+          latitude={p.latitude}
+          longitude={p.longitude}
           closeButton={true}
           closeOnClick={false}
           
           anchor="left" >
           <div className="card">
           <label>Place</label>
-          <h4 className="place">New York</h4>
+          <h4 className="place">{p.title}</h4>
           <label>Review</label>
-          <p>Love Time Square</p>
+          <p>{p.description}</p>
           <label>Rating</label>
           <div className="stars">
           <Star/>
@@ -68,10 +69,10 @@ function Map() {
           <Star/>
           </div>
           <label>Information</label>
-          <span className="username"> Create by <b>mario</b></span>
-          <span className="date">1 hour ago</span>
+          <span className="username"> Create by <b>{p.username}</b></span>
+          <span className="date">{format(p.createdAt)}</span>
           </div>
-        </Popup> */}
+        </Popup>
         </>
         ))}
       </ReactMapGL>
