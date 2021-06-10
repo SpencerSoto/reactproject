@@ -9,6 +9,7 @@ import "./Map.css";
 
 function Map() {
   const [pins, setPins] = useState([]);
+  const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "60vh",
@@ -29,6 +30,10 @@ function Map() {
     getPins()
   }, []);
 
+  const handleMarkerClick = (id) => {
+     setCurrentPlaceId(id)
+  }
+
   return (
     <div className="Map">
       <ReactMapGL
@@ -46,15 +51,21 @@ function Map() {
           offsetLeft={-20}
           offsetTop={-10}
           >
-          <Room style={{fontSize:viewport.zoom * 7, color:"slateblue" }}/>
+          <Room 
+          style={{fontSize:viewport.zoom * 7, color:"slateblue", cursor:"pointer" }}
+          onClick={()=>handleMarkerClick(p._id)}
+          />
         </Marker>
+
+        {p._id === currentPlaceId &&
         <Popup
-          latitude={p.latitude}
-          longitude={p.longitude}
-          closeButton={true}
-          closeOnClick={false}
-          
-          anchor="left" >
+        latitude={p.latitude}
+        longitude={p.longitude}
+        closeButton={true}
+        closeOnClick={false}
+        onClose={()=>setCurrentPlaceId(null)}
+        
+        anchor="left" >
           <div className="card">
           <label>Place</label>
           <h4 className="place">{p.title}</h4>
@@ -73,6 +84,7 @@ function Map() {
           <span className="date">{format(p.createdAt)}</span>
           </div>
         </Popup>
+          }
         </>
         ))}
       </ReactMapGL>
