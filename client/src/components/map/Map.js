@@ -57,7 +57,7 @@ function Map() {
       >
 
         {pins.map(p=>(
-<>
+<div  key={p._id}>
           <Marker
           latitude={p.latitude}
           longitude={p.longitude}
@@ -98,10 +98,11 @@ function Map() {
           </div>
         </Popup>
           }
-        </>
+        </div>
         ))}
         {newPlace && 
         <Popup
+        key={newPlace.lat}
         latitude={newPlace.lat}
         longitude={newPlace.long}
         closeButton={true}

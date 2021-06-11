@@ -5,13 +5,11 @@ import * as PATHS from "../../utils/paths";
 import * as CONSTS from "../../utils/consts";
 
 const Navbar = (props) => {
+  console.log(PATHS)
   return (
     <nav>
       <Link to={PATHS.HOMEPAGE} className="nav__projectName">
         {CONSTS.CAPITALIZED_APP} - TravelBuds
-      </Link>
-      <Link>
-        
       </Link>
 
       <div className="nav__authLinks">

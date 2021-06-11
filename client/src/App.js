@@ -17,7 +17,6 @@ import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 
 
-
 class App extends React.Component {
   state = {
     user: null,
@@ -26,6 +25,7 @@ class App extends React.Component {
 
   componentDidMount = () => {
     localStorage.setItem("myCat", "Tom");
+    
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
@@ -33,6 +33,7 @@ class App extends React.Component {
       });
     }
     getLoggedIn(accessToken).then((res) => {
+      
       if (!res.status) {
         console.log("RES IN CASE OF FAILURE", res);
         // deal with failed backend call
@@ -48,6 +49,7 @@ class App extends React.Component {
   };
 
   handleLogout = () => {
+   
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
@@ -61,16 +63,19 @@ class App extends React.Component {
       },
       () => {
         logout(accessToken).then((res) => {
+          console.log(res)
           if (!res.status) {
             // deal with error here
             console.error("💡 SOMETHING HAPPENED THAT HAS TO DEALT WITH", res);
           }
 
           localStorage.removeItem(CONSTS.ACCESS_TOKEN);
+          
           return this.setState({
             isLoading: false,
             user: null,
           });
+
         });
       }
     );
@@ -84,6 +89,7 @@ class App extends React.Component {
 
   render() {
     if (this.state.isLoading) {
+
       return <LoadingComponent />;
     }
 
