@@ -15,6 +15,7 @@ import * as CONSTS from "./utils/consts";
 import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
+import NewsFeed from "./components/NotificationFeed/NewsFeed";
 
 
 class App extends React.Component {
