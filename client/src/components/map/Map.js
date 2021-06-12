@@ -12,6 +12,9 @@ function Map() {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [rating, setRating] = useState(0);
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "60vh",
@@ -43,7 +46,28 @@ function Map() {
      lat,
      long
    })
-  }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newPin = {
+      username: currentUser,
+      title,
+      description,
+      rating,
+      latitude:newPlace.lat,
+      longitude:newPlace.long
+    }
+
+    try {
+
+      const res = await axios.post("/pins", newPin)
+      setPins([...pins,res.data]);
+      setNewPlace(null);
+    } catch (err) {
+console.log(err)
+    }
+  };
 
   return (
     <div className="Map">
@@ -61,8 +85,8 @@ function Map() {
           <Marker
           latitude={p.latitude}
           longitude={p.longitude}
-          offsetLeft={-20}
-          offsetTop={-10}
+          offsetLeft={-viewport.zoom * 3.5}
+          offsetTop={-viewport.zoom * 7}
           >
           <Room 
           style={{fontSize:viewport.zoom * 7, color: p.username === currentUser ?"green" : "slateblue", cursor:"pointer" }}
@@ -86,11 +110,7 @@ function Map() {
           <p>{p.description}</p>
           <label>Rating</label>
           <div className="stars">
-          <Star/>
-          <Star/>
-          <Star/>
-          <Star/>
-          <Star/>
+          {Array(p.rating).fill(<Star className="star"/>)}
           </div>
           <label>Information</label>
           <span className="username"> Create by <b>{p.username}</b></span>
@@ -110,13 +130,17 @@ function Map() {
         onClose={()=> setNewPlace(null)}
         >
           <div>
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>Title</label>
-              <input placeholder="Enter a Title"/>
+              <input placeholder="Enter a Title"
+              onChange={(e) => setTitle(e.target.value)}
+              />
               <label>Review</label>
-              <textarea placeholder="Say something about this place"/>
+              <textarea placeholder="Say something about this place"
+              onChange={(e) => setDescription(e.target.value)}
+              />
               <label>Rating</label>
-              <select>
+              <select onChange={(e) => setRating(e.target.value)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
