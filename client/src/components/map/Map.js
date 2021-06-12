@@ -16,7 +16,7 @@ function Map() {
   const [description, setDescription] = useState(null);
   const [rating, setRating] = useState(0);
   const [viewport, setViewport] = useState({
-    width: "100vw",
+    width: "100%",
     height: "60vh",
     latitude: 37.7577,
     longitude: -95.7129,

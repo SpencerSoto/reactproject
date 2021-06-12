@@ -1,4 +1,16 @@
 .container-about{
-    background:wheat;
+    background-image: url("https://wallpaperaccess.com/full/185289.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.container-about{
     text-justify: left;
+    margin: 0;
+    color:yellow;
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    box-shadow: black;
 }
