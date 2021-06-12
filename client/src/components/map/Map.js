@@ -7,8 +7,7 @@ import {format} from "timeago.js"
 import "./Map.css";
 
 
-function Map() {
-  const currentUser = "Mario"
+function Map(props) {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -51,7 +50,7 @@ function Map() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPin = {
-      username: currentUser,
+      username: props.user.username,
       title,
       description,
       rating,
@@ -89,7 +88,7 @@ console.log(err)
           offsetTop={-viewport.zoom * 7}
           >
           <Room 
-          style={{fontSize:viewport.zoom * 7, color: p.username === currentUser ?"green" : "slateblue", cursor:"pointer" }}
+          style={{fontSize:viewport.zoom * 7, color: p.username === props.user?.username ?"green" : "slateblue", cursor:"pointer" }}
           onClick={()=>handleMarkerClick(p._id,p.latitude,p.longitude)}
           />
         </Marker>

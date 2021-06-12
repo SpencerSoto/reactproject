@@ -99,7 +99,7 @@ class App extends React.Component {
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
           <Banner/>
-          <Map/>
+          <Map user={this.state.user}/>
           <About/>
         <Switch>
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
