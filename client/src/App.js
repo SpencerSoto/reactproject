@@ -122,6 +122,7 @@ class App extends React.Component {
             user={this.state.user}
           />
         </Switch>
+        <NewsFeed />
         <JourneyLog/>
       </div>
     );
