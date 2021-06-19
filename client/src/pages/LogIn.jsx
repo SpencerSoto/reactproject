@@ -39,7 +39,7 @@ export default class Login extends Component {
     return (
       <div>
         <h1>Log In</h1>
-        <form onSubmit={this.handleFormSubmission} className="signup__form">
+        <form onSubmit={this.handleFormSubmission} className="auth__form">
           <label htmlFor="input-username">Username</label>
           <input
             id="input-username"
