@@ -16,6 +16,7 @@ import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
+import Profile from "./components/Profile/Profile"
 
 
 class App extends React.Component {
@@ -101,7 +102,10 @@ class App extends React.Component {
           <Banner/>
           <Map user={this.state.user}/>
           <About/>
+          {/* <Profile /> */}
         <Switch>
+          {/* <Route path="/profile" component={Profile} >
+          </Route> */}
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
             exact
@@ -122,6 +126,7 @@ class App extends React.Component {
             user={this.state.user}
           />
         </Switch>
+        
         <NewsFeed />
         <JourneyLog/>
       </div>
