@@ -117,7 +117,7 @@ class App extends React.Component {
       
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
-          <Banner/>
+          {/* <Banner/> */}
           {/* <Map user={this.state.user}/> */}
           {/* <About/> */}
           
@@ -157,7 +157,7 @@ class App extends React.Component {
             user={this.state.user}
           />
         </Switch>
-        <NewsFeed />
+        {/* <NewsFeed /> */}
       </div>
     );
   }
