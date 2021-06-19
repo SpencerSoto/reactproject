@@ -27,7 +27,7 @@ class Profile extends Component {
             Share your journeys and inspire others to engage our world with understanding.<br></br>
             Our community is dedicated to the Adventures of your Life!</p>
 
-            <EditProfile/>
+            {/* <EditProfile/> */}
 
             </section>
         )

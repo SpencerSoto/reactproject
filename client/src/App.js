@@ -104,8 +104,7 @@ class App extends React.Component {
           <About/>
           {/* <Profile /> */}
         <Switch>
-          {/* <Route path="/profile" component={Profile} >
-          </Route> */}
+          <NormalRoute path={PATHS.PROFILE} component={Profile} />
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
             exact
