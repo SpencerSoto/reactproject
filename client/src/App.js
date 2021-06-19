@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
+import pinsServices from './services/pins'
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
 import Banner from "./components/Banner/Banner";
@@ -23,11 +24,22 @@ class App extends React.Component {
   state = {
     user: null,
     isLoading: false,
+    pins: [],
+  };
+
+  getPins = async () => {
+    try {
+      const res = await pinsServices.getPins();
+      console.log({ res })
+      this.setState({ pins: res.data });
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   componentDidMount = () => {
     localStorage.setItem("myCat", "Tom");
-    
+    this.getPins()
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
@@ -49,6 +61,12 @@ class App extends React.Component {
       });
     });
   };
+
+  setPins = (pins) => {
+    this.setState({
+      pins
+    })
+  }
 
   handleLogout = () => {
    
@@ -110,8 +128,15 @@ class App extends React.Component {
             exact
             path={PATHS.MAP}
             component={Map}
-            user={this.state.user} />
-          <NormalRoute path={PATHS.PROFILE} component={Profile} />
+            user={this.state.user}
+            pins={this.state.pins}
+            setPins={this.setPins}
+            />
+          <NormalRoute
+            path={PATHS.PROFILE}
+            component={Profile}
+            pins={this.state.pins}
+          />
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
             exact

@@ -2,18 +2,17 @@ import React from "react";
 import { useEffect, useState } from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
 import { Room, Star } from "@material-ui/icons";
-import axios from "axios";
+import pinsServices from '../../services/pins';
 import {format} from "timeago.js"
 import "./Map.css";
 
 
-function Map(props) {
-  const [pins, setPins] = useState([]);
+function Map({ user, pins, setPins }) {
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
   const [title, setTitle] = useState(null);
   const [description, setDescription] = useState(null);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(1);
   const [viewport, setViewport] = useState({
     width: "100%",
     height: "71vh",
@@ -21,18 +20,6 @@ function Map(props) {
     longitude: -95.7129,
     zoom: 3
   });
-
-  useEffect(() => {
-    const getPins = async () => {
-      try {
-        const res = await axios.get("/pins");
-        setPins(res.data);
-      } catch (err) {
-        console.log(err)
-      }
-    };
-    getPins()
-  }, []);
 
   const handleMarkerClick = (id, latitude, longitude) => {
      setCurrentPlaceId(id)
@@ -50,7 +37,7 @@ function Map(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newPin = {
-      username: props.user.username,
+      username: user.username,
       title,
       description,
       rating,
@@ -59,8 +46,7 @@ function Map(props) {
     }
 
     try {
-
-      const res = await axios.post("/pins", newPin)
+      const res = await pinsServices.createPin(newPin)
       setPins([...pins,res.data]);
       setNewPlace(null);
     } catch (err) {
@@ -88,7 +74,7 @@ console.log(err)
           offsetTop={-viewport.zoom * 7}
           >
           <Room 
-          style={{fontSize:viewport.zoom * 7, color: p.username === props.user?.username ?"green" : "slateblue", cursor:"pointer" }}
+          style={{fontSize:viewport.zoom * 7, color: p.username === user?.username ?"green" : "slateblue", cursor:"pointer" }}
           onClick={()=>handleMarkerClick(p._id,p.latitude,p.longitude)}
           />
         </Marker>
