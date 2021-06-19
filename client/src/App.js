@@ -100,10 +100,17 @@ class App extends React.Component {
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
           <Banner/>
-          <Map user={this.state.user}/>
-          <About/>
-          {/* <Profile /> */}
+          {/* <Map user={this.state.user}/> */}
+          {/* <About/> */}
+          
         <Switch>
+          <NormalRoute path={PATHS.ABOUT} component={About} />
+          <NormalRoute path={PATHS.JOURNEYLOG} component={JourneyLog} />
+          <NormalRoute 
+            exact
+            path={PATHS.MAP}
+            component={Map}
+            user={this.state.user} />
           <NormalRoute path={PATHS.PROFILE} component={Profile} />
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute
@@ -125,9 +132,7 @@ class App extends React.Component {
             user={this.state.user}
           />
         </Switch>
-        
         <NewsFeed />
-        <JourneyLog/>
       </div>
     );
   }
