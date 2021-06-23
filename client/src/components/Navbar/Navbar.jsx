@@ -27,6 +27,9 @@ const Navbar = (props) => {
             <Link to={PATHS.JOURNEYLOG} className="authLink">
               Journey Log
             </Link>
+            <Link to={PATHS.ABOUT} className="authLink">
+              About Us
+            </Link>
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>
