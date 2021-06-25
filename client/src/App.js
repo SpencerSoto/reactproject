@@ -18,6 +18,7 @@ import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
 import Profile from "./components/Profile/Profile"
+import Footer from "./components/footer/Footer";
 
 
 class App extends React.Component {
@@ -158,6 +159,7 @@ class App extends React.Component {
           />
         </Switch>
         {/* <NewsFeed /> */}
+        {/* <Footer/> */}
       </div>
     );
   }
