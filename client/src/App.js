@@ -38,6 +38,24 @@ class App extends React.Component {
     }
   };
 
+  deletePin = (id) => {
+    const updatedPins = this.state.pins.filter((pin) => pin._id !== id);
+    console.log(updatedPins)
+    this.setState({
+      pins: updatedPins,
+    });
+  };
+
+  updatePin = (updatedPin) => {
+    const updatedPins = this.state.pins.map((pin) =>
+      pin._id === updatedPin._id ? updatedPin : pin
+    );
+    this.setState({
+      pins: updatedPins,
+    });
+    // console.log(updatedPins)
+  };
+
   componentDidMount = () => {
     localStorage.setItem("myCat", "Tom");
     this.getPins()
@@ -132,6 +150,7 @@ class App extends React.Component {
             user={this.state.user}
             pins={this.state.pins}
             setPins={this.setPins}
+            deletePin={this.deletePin}
             />
           <NormalRoute
             path={PATHS.PROFILE}
