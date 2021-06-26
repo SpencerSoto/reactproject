@@ -18,9 +18,16 @@ export function createJourneylogs(newJourneylog) {
     .then((response) => response)
     .catch((err) => err);
 }
+export function deleteJourneylog(id) {
+  return journeyService
+    .post(`/${id}/delete`)
+    .then((response) => response)
+    .catch((err) => err);
+}
 
 const logServices = {
   getJourneylogs,
   createJourneylogs,
+  deleteJourneylog,
 };
 export default logServices;

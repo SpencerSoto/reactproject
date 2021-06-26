@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./JourneyLog.css";
-import axios from "axios";
 import journeyService from "../../services/journeys";
 
 //create ShowPost component
@@ -39,26 +38,14 @@ class JourneyLog extends Component {
     title: "",
     description: "",
   };
-  addPost() {
-    //  axios.post('/addPost', {
-    //    title: this.state.title,
-    //    subject: this.state.subject
-    //  })
-    //  .then(function (response) {
-    //    console.log('response from add post is ',response);
-    //  })
-    //  .catch(function (error) {
-    //    console.log(error);
-    //  });
-  }
   handleChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await this.addPost();
-    console.log(res);
+    let res = await journeyService.createJourneylogs(this.state);
+    console.log(res.data);
   };
 
   render() {
@@ -88,19 +75,14 @@ class JourneyLog extends Component {
                   className="form-control"
                   onChange={this.handleChange}
                   type="textarea"
-                  id="subject"
+                  id="description"
                   placeholder="Subject"
                   maxLength="140"
                   rows="7"
                 ></textarea>
               </div>
 
-              <button
-                type="submit"
-                id="submit"
-                name="submit"
-                className="btn btn-primary pull-right"
-              >
+              <button type="submit" className="btn btn-primary pull-right">
                 Add Post
               </button>
             </form>
