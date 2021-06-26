@@ -1,5 +1,5 @@
 import React from "react";
-import Map from "./components/map/Map"
+import Map from "./components/map/Map";
 import { Switch } from "react-router-dom";
 import LoadingComponent from "./components/Loading";
 import Navbar from "./components/Navbar/Navbar";
@@ -10,16 +10,21 @@ import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
-import pinsServices from './services/pins'
+import logServices from "./services/journeys";
+import pinsServices from "./services/pins";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
 import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
+<<<<<<< HEAD
+import Profile from "./components/Profile/Profile";
+=======
 import Profile from "./components/Profile/Profile"
 import Footer from "./components/footer/Footer";
 
+>>>>>>> 14ae6e146570b115e8d496dd835a8bcdf97c95a8
 
 class App extends React.Component {
   state = {
@@ -31,10 +36,10 @@ class App extends React.Component {
   getPins = async () => {
     try {
       const res = await pinsServices.getPins();
-      console.log({ res })
+      console.log({ res });
       this.setState({ pins: res.data });
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -58,15 +63,18 @@ class App extends React.Component {
 
   componentDidMount = () => {
     localStorage.setItem("myCat", "Tom");
-    this.getPins()
+    this.getPins();
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
         isLoading: false,
       });
     }
+    logServices.getJourneylogs().then((response) => {
+      const { journeylogs } = response.data;
+      console.log({ journeylogs });
+    });
     getLoggedIn(accessToken).then((res) => {
-      
       if (!res.status) {
         console.log("RES IN CASE OF FAILURE", res);
         // deal with failed backend call
@@ -83,12 +91,11 @@ class App extends React.Component {
 
   setPins = (pins) => {
     this.setState({
-      pins
-    })
-  }
+      pins,
+    });
+  };
 
   handleLogout = () => {
-   
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
     if (!accessToken) {
       return this.setState({
@@ -102,19 +109,18 @@ class App extends React.Component {
       },
       () => {
         logout(accessToken).then((res) => {
-          console.log(res)
+          console.log(res);
           if (!res.status) {
             // deal with error here
             console.error("💡 SOMETHING HAPPENED THAT HAS TO DEALT WITH", res);
           }
 
           localStorage.removeItem(CONSTS.ACCESS_TOKEN);
-          
+
           return this.setState({
             isLoading: false,
             user: null,
           });
-
         });
       }
     );
@@ -128,30 +134,32 @@ class App extends React.Component {
 
   render() {
     if (this.state.isLoading) {
-
       return <LoadingComponent />;
     }
 
     return (
-      
       <div className="App">
         <Navbar handleLogout={this.handleLogout} user={this.state.user} />
-          {/* <Banner/> */}
-          {/* <Map user={this.state.user}/> */}
-          {/* <About/> */}
-          
+        {/* <Banner/> */}
+        {/* <Map user={this.state.user}/> */}
+        {/* <About/> */}
+
         <Switch>
           <NormalRoute path={PATHS.ABOUT} component={About} />
           <NormalRoute path={PATHS.JOURNEYLOG} component={JourneyLog} />
-          <NormalRoute 
+          <NormalRoute
             exact
             path={PATHS.MAP}
             component={Map}
             user={this.state.user}
             pins={this.state.pins}
             setPins={this.setPins}
+<<<<<<< HEAD
+          />
+=======
             deletePin={this.deletePin}
             />
+>>>>>>> dbc29aafbfa587e92eea38e319cea656c628c3e7
           <NormalRoute
             path={PATHS.PROFILE}
             component={Profile}
@@ -185,4 +193,3 @@ class App extends React.Component {
 }
 
 export default App;
-
