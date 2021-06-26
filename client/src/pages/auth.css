@@ -44,11 +44,11 @@ form.auth__form {
     
   }
 
-.auth__form{
+.signup-container label{
   font-size: 40px;
   color: blanchedalmond;
 }
-  input
+  .signup-container input
   {
     font-size: 30px;
     color: blanchedalmond;

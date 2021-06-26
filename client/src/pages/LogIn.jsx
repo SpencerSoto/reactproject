@@ -46,7 +46,7 @@ export default class Login extends Component {
             id="input-username"
             type="text"
             name="username"
-            placeholder="username"
+            placeholder="Username"
             value={this.state.username}
             onChange={this.handleInputChange}
             required
