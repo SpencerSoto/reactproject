@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "./JourneyLog.css";
+import axios from "axios";
+import journeyService from "../../services/journeys";
+
+//create ShowPost component
 
 //constructor(props) {
 //  super(props);
@@ -11,14 +15,9 @@ import "./JourneyLog.css";
 //  };
 //}
 
-//handleTitleChange(e){
-//  this.setState({title:e.target.value})
-//}
-//handleSubjectChange(e){
-//  this.setState({body:e.target.value})
-//}
+//adding the change event handler to the addPost
 
-//addPost(){
+// addPost(){
 //  axios.post('/addPost', {
 //    title: this.state.title,
 //    subject: this.state.subject
@@ -32,35 +31,86 @@ import "./JourneyLog.css";
 //  });
 //}
 
+//addPost React Component
 class JourneyLog extends Component {
-    render() {
-        return (
-            <section className='container-journeylog'>
-            <br></br>
-            <br></br>
-            <h1>Journey's End Blog</h1>
-            <div className="col-md-5">
-            <div className="form-area">  
-              <form role="form">
-              <br styles="clear:both" />
-                <div className="form-group">
-                  <input type="text" onChange={this.handleTitleChange} className="form-control" id="title" name="title" placeholder="Title" required />
-                </div>
-                
-                <div className="form-group">
-                <textarea className="form-control" onChange={this.handleSubjectChange} type="textarea" id="subject" placeholder="Subject" maxlength="140" rows="7"></textarea>
-                </div>
-                   
-              <button type="button" id="submit" name="submit" className="btn btn-primary pull-right">Add Post</button>
-              </form>
-              <br></br>
-              <br></br>
-            </div>
-            </div>
+  //  this.handleTitleChange = this.handleTitleChange.bind(this);
+  //  this.handleSubjecChange = this.handleSubjectChange.bind(this);
+  state = {
+    title: "",
+    description: "",
+  };
+  addPost() {
+    //  axios.post('/addPost', {
+    //    title: this.state.title,
+    //    subject: this.state.subject
+    //  })
+    //  .then(function (response) {
+    //    console.log('response from add post is ',response);
+    //  })
+    //  .catch(function (error) {
+    //    console.log(error);
+    //  });
+  }
+  handleChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
-            </section>
-        )
-    }
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    let res = await this.addPost();
+    console.log(res);
+  };
+
+  render() {
+    return (
+      <section className="container-journeylog">
+        <br></br>
+        <br></br>
+        <h1>Journey's End Blog</h1>
+        <div className="col-md-5">
+          <div className="form-area">
+            <form onSubmit={this.handleSubmit}>
+              <br styles="clear:both" />
+              <div className="form-group">
+                <input
+                  type="text"
+                  onChange={this.handleChange}
+                  className="form-control"
+                  id="title"
+                  name="title"
+                  placeholder="Title"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <textarea
+                  className="form-control"
+                  onChange={this.handleChange}
+                  type="textarea"
+                  id="subject"
+                  placeholder="Subject"
+                  maxLength="140"
+                  rows="7"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submit"
+                name="submit"
+                className="btn btn-primary pull-right"
+              >
+                Add Post
+              </button>
+            </form>
+            <br></br>
+            <br></br>
+          </div>
+        </div>
+      </section>
+    );
+  }
 }
 
 export default JourneyLog;
