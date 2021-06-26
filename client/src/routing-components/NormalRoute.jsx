@@ -8,7 +8,7 @@ const NormalRoute = ({ exact, to, path, component, ...componentProps }) => {
     <Route
       exact={exact}
       path={path || to}
-      render={(props) => <Component {...componentProps} {...props} />}
+      render={({history, match, location}) => <Component {...componentProps} {...{history, match, location}} />}
     />
   );
 };

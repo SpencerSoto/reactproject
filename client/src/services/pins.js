@@ -17,9 +17,24 @@ export function createPin(newPin) {
     .then(response => response)
     .catch(err => err);
 }
+// /123/delete
+export function deletePin(id) {
+  return pinsService
+  .post(`/${id}/delete`)
+  .then(response => response)
+  .catch(err => err);
+}
+
+ export function editPin(id, pinData) {
+  pinsService.post(`/${id}/edit`, pinData)
+  .then(response => response)
+  .catch(err => err);
+ }
 
 const services = {
     getPins,
-    createPin
+    createPin,
+    deletePin,
+    editPin
 }
 export default services;
