@@ -66,10 +66,10 @@ class App extends React.Component {
         isLoading: false,
       });
     }
-    logServices.getJourneylogs().then((response) => {
-      const { journeylogs } = response.data;
-      console.log({ journeylogs });
-    });
+    // logServices.getJourneylogs().then((response) => {
+    //   const { journeylogs } = response.data;
+    //   console.log({ journeylogs });
+    // });
     getLoggedIn(accessToken).then((res) => {
       if (!res.status) {
         console.log("RES IN CASE OF FAILURE", res);
