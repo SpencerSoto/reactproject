@@ -18,7 +18,13 @@ import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
+<<<<<<< HEAD
 import Profile from "./components/Profile/Profile";
+=======
+import Profile from "./components/Profile/Profile"
+import Footer from "./components/footer/Footer";
+
+>>>>>>> 14ae6e146570b115e8d496dd835a8bcdf97c95a8
 
 class App extends React.Component {
   state = {
@@ -157,6 +163,7 @@ class App extends React.Component {
           />
         </Switch>
         {/* <NewsFeed /> */}
+        {/* <Footer/> */}
       </div>
     );
   }

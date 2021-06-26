@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
 }
-.signup-container {
+.signup-container{
   width: 100% ;
   height: 92.5vh ;
   
@@ -44,7 +44,7 @@ form.auth__form {
     
   }
 
-label {
+.auth__form{
   font-size: 40px;
   color: blanchedalmond;
 }

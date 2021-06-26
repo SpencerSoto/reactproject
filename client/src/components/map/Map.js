@@ -15,10 +15,10 @@ function Map({ user, pins, setPins }) {
   const [rating, setRating] = useState(1);
   const [viewport, setViewport] = useState({
     width: "100%",
-    height: "71vh",
-    latitude: 37.7577,
-    longitude: -95.7129,
-    zoom: 3
+    height: "91vh",
+    latitude: 22.133480524742637,  
+    longitude: -21.302729420269735,
+    zoom: 1.5
   });
 
   const handleMarkerClick = (id, latitude, longitude) => {
