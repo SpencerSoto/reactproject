@@ -18,10 +18,16 @@ import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
+<<<<<<< HEAD
+import Profile from "./components/Profile/Profile";
+import Footer from "./components/footer/Footer";
+
+=======
 import Profile from "./components/Profile/Profile"
 import Footer from "./components/footer/Footer";
 
 
+>>>>>>> 1c859f47340a272093e285becbe52e487aaabb8d
 class App extends React.Component {
   state = {
     user: null,
@@ -41,7 +47,7 @@ class App extends React.Component {
 
   deletePin = (id) => {
     const updatedPins = this.state.pins.filter((pin) => pin._id !== id);
-    console.log(updatedPins)
+    console.log(updatedPins);
     this.setState({
       pins: updatedPins,
     });
@@ -151,7 +157,11 @@ class App extends React.Component {
             pins={this.state.pins}
             setPins={this.setPins}
             deletePin={this.deletePin}
+<<<<<<< HEAD
+          />
+=======
             />
+>>>>>>> 1c859f47340a272093e285becbe52e487aaabb8d
           <NormalRoute
             path={PATHS.PROFILE}
             component={Profile}
