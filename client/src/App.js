@@ -20,7 +20,6 @@ import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/footer/Footer";
-import Posts from "./components/posts/posts";
 import journeyService, { getJourneylogs } from "./services/journeys";
 
 class App extends React.Component {
@@ -72,10 +71,10 @@ class App extends React.Component {
         isLoading: false,
       });
     }
-    logServices.getJourneylogs().then((response) => {
-      const { journeylogs } = response.data;
-      console.log({ journeylogs });
-    });
+    // logServices.getJourneylogs().then((response) => {
+    //   const { journeylogs } = response.data;
+    //   console.log({ journeylogs });
+    // });
     getLoggedIn(accessToken).then((res) => {
       if (!res.status) {
         console.log("RES IN CASE OF FAILURE", res);
