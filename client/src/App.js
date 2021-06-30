@@ -59,10 +59,10 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
-    getJourneylogs().then((result) => {
-      this.setState({ journeylog: result.data.journeylogs });
-      console.log(result, "A string ");
-    });
+    // getJourneylogs().then((result) => {
+    //   this.setState({ journeylog: result.data.journeylogs });
+    //   console.log(result, "A string ");
+    // });
     localStorage.setItem("myCat", "Tom");
     this.getPins();
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);

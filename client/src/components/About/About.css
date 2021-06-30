@@ -1,4 +1,6 @@
 .container-about {
+  width: 100% ;
+  height: 86.7vh ;
   background-image: url("https://wallpaperaccess.com/full/185289.jpg");
   background-repeat: no-repeat;
   background-size: cover;
