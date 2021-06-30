@@ -14,7 +14,7 @@ function Map({ user, pins, setPins, match, deletePin, history }) {
   const [rating, setRating] = useState(1);
   const [viewport, setViewport] = useState({
     width: "100%",
-    height: "91vh",
+    height: "86.7vh",
     latitude: 22.133480524742637,
     longitude: -21.302729420269735,
     zoom: 1.5,

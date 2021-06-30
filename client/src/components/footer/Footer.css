@@ -1,3 +1,42 @@
+.footer-container{
+    background: #282c34;
+    
+}
+
+a.a-text {
+    color: #61dafb;
+    margin: 0 0.5rem ;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+
+a.icon {
+    margin: 0 0.5rem ;
+    transition: 25px 50px;
+    display: inline-block;
+}
+
+a.icon:hover{
+    transform: translateY(-2px);
+}
+
+a.facebook {
+    color: #4968ad
+}
+
+a.linkedin {
+    color: #0e76a8
+}
+
+a.instagram   {
+    color: #8a3ab9;
+  
+}
+
+a.twitter {
+    color: #49a1eb
+}
 
   
   
