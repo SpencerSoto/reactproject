@@ -1,4 +1,6 @@
 .container-journeylog{
+  width: 100% ;
+  height: 86.7vh ;
   background-image: url(/src/components/JourneyLog/Old-World-map-wallpaper.jpeg);
   background-size: cover;
   background-position: center center;
