@@ -18,15 +18,16 @@ import Banner from "./components/Banner/Banner";
 import About from "./components/About/About";
 import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
-import Profile from "./components/Profile/Profile"
+import Profile from "./components/Profile/Profile";
 import Footer from "./components/footer/Footer";
-
+import journeyService, { getJourneylogs } from "./services/journeys";
 
 class App extends React.Component {
   state = {
     user: null,
     isLoading: false,
     pins: [],
+    journeylogs: [],
   };
 
   getPins = async () => {
@@ -58,6 +59,10 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
+    getJourneylogs().then((result) => {
+      this.setState({ journeylog: result.data.journeylogs });
+      console.log(result, "A string ");
+    });
     localStorage.setItem("myCat", "Tom");
     this.getPins();
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
@@ -151,7 +156,7 @@ class App extends React.Component {
             pins={this.state.pins}
             setPins={this.setPins}
             deletePin={this.deletePin}
-            />
+          />
           <NormalRoute
             path={PATHS.PROFILE}
             component={Profile}
