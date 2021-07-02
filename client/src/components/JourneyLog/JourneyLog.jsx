@@ -4,12 +4,6 @@ import journeyService, { getJourneylogs } from "../../services/journeys";
 import { render } from "timeago.js";
 
 class JourneyLog extends Component {
-  //const {title, description} = this.props;
-  //let eachlog = ;
-  // state = {
-  //   title: "",
-  //   description: "",
-
   handleChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -19,18 +13,6 @@ class JourneyLog extends Component {
     let res = await journeyService.createJourneylogs(this.state);
     console.log(res.data);
   };
-  // componentDidMount() {
-  //   console.log("testing connection");
-  //}
-
-  //render(){
-
-  //   return(
-  //     <div className="list-container">
-  //     <ul className="journeylog-list"><
-  //       {this.getJourneylogs()}
-  //     </ul>
-  //     </div>
 
   render() {
     console.log("You can do it");
@@ -68,10 +50,20 @@ class JourneyLog extends Component {
                 Add Post
               </button>
             </form>
+            <br></br>
             <div className="list-container">
               <ul className="journeylog-list">
                 {this.props.journeylogs.map((eachLog) => {
-                  return <div>{eachLog.title}</div>;
+                  return (
+                    <div>
+                      <h4 className="list-group-item-heading">
+                        {eachLog.title}
+                      </h4>
+                      <p className="list-group-item-text">
+                        {eachLog.description}
+                      </p>
+                    </div>
+                  );
                 })}
               </ul>
             </div>

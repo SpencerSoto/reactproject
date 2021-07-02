@@ -6,3 +6,22 @@
   background-position: center center;
   padding-bottom: 10;
 }
+
+.form-group{
+  align-content: left;
+}
+
+.list-container{
+  padding-left: 30px;
+  padding-top: 40px;
+  display: flex;
+  justify-content: left;
+  background-color: blanchedalmond;
+
+}
+
+.journeylog-list{
+  list-style-type: none;
+  margin: 10 px;
+  border: 2px solid black;
+}
