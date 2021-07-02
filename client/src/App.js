@@ -59,10 +59,19 @@ class App extends React.Component {
   };
 
   componentDidMount = () => {
-    // getJourneylogs().then((result) => {
-    //   this.setState({ journeylog: result.data.journeylogs });
-    //   console.log(result, "A string ");
-    // });
+    getJourneylogs().then((result) => {
+      this.setState({ journeylogs: result.data.journeylogs });
+      console.log(result, "A string ");
+    });
+    // potential solution?
+    //getJourneylogs = ()=>{
+    //   return this.journeylogs.map((eachLog)=>{
+    //      return(
+    //         <JourneyLog {...eachLog} key={eachLog.type}/>
+    //      )
+    //   })
+    //}
+
     localStorage.setItem("myCat", "Tom");
     this.getPins();
     const accessToken = localStorage.getItem(CONSTS.ACCESS_TOKEN);
@@ -147,7 +156,11 @@ class App extends React.Component {
 
         <Switch>
           <NormalRoute path={PATHS.ABOUT} component={About} />
-          <NormalRoute path={PATHS.JOURNEYLOG} component={JourneyLog} />
+          <NormalRoute
+            path={PATHS.JOURNEYLOG}
+            component={JourneyLog}
+            journeylogs={this.state.journeylogs}
+          />
           <NormalRoute
             exact
             path={PATHS.MAP}
@@ -183,7 +196,7 @@ class App extends React.Component {
           />
         </Switch>
         {/* <NewsFeed /> */}
-        <Footer/>
+        <Footer />
       </div>
     );
   }
