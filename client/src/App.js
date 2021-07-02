@@ -10,7 +10,7 @@ import Signup from "./pages/Signup";
 import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
-import logServices from "./services/journeys";
+import { getJourneylogs } from "./services/journeys";
 import pinsServices from "./services/pins";
 import * as PATHS from "./utils/paths";
 import * as CONSTS from "./utils/consts";
@@ -27,6 +27,7 @@ class App extends React.Component {
     user: null,
     isLoading: false,
     pins: [],
+    journeylogs: [],
   };
 
   getPins = async () => {
