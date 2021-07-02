@@ -46,6 +46,8 @@ class Profile extends Component {
         console.log(this.props.pins)
         const pins = this.props.pins?.map(pin => <h5 key={pin._id}>{pin.description}</h5>)
         console.log(pins)
+        // const user = this.state.user(user => <h5 key={user._id}>{user.description}</h5>)
+        // console.log(user)
         return (
                       
             <div class=" profile">
@@ -53,7 +55,7 @@ class Profile extends Component {
                     <img style={{width:"160px", height:"160px",borderRadius:"80px"}}
                     src="https://play-lh.googleusercontent.com/TECjsAu9DWLbKBuDl2sDHEUhlTh-n0eTgrHbt-7-a33Fy2p-slkHg8FN6r_dCbKBdA"
                     />
-                    <h2>Profile for Wingz4Lyfe</h2>
+                    <h2>Profile for {this.user}</h2>
                 </div>
                 <h1 id='Profile'>Profile</h1>
                 <h3>User Info: Spencer Soto</h3>
