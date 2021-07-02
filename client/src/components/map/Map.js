@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, { Marker, Popup } from "!react-map-gl";
 import { Room, Star } from "@material-ui/icons";
 import pinsServices from "../../services/pins";
 import { format } from "timeago.js";
