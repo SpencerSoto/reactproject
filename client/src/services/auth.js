@@ -25,7 +25,7 @@ function successStatus(res) {
 
 // creates a basic url for every request in this file
 const authService = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/api/auth`,
+  baseURL: `https://remembrance-worms-45542.herokuapp.com/api/auth`,
   // baseURL: `http://localhost:5005/api/auth`,
 });
 

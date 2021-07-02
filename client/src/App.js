@@ -20,14 +20,13 @@ import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/footer/Footer";
-import journeyService, { getJourneylogs } from "./services/journeys";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 class App extends React.Component {
   state = {
     user: null,
     isLoading: false,
     pins: [],
-    journeylogs: [],
   };
 
   getPins = async () => {
@@ -174,6 +173,7 @@ class App extends React.Component {
             path={PATHS.PROFILE}
             component={Profile}
             pins={this.state.pins}
+            user={this.state.user}
           />
           <NormalRoute exact path={PATHS.HOMEPAGE} component={HomePage} />
           <NormalRoute

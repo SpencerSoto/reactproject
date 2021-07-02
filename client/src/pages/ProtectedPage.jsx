@@ -4,6 +4,7 @@ const ProtectedPage = () => {
   return (
     <div>
       <h1>This page is hyper protected!</h1>
+      {this.user}
     </div>
   );
 };
