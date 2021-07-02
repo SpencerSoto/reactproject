@@ -30,9 +30,11 @@ const Navbar = (props) => {
             {/* <Link to={PATHS.ABOUT} className="authLink">
               About Us
             </Link> */}
+            <Link to={PATHS.HOMEPAGE} className="authLink" >
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>
+            </Link>
           </>
         ) : (
           <>
