@@ -20,6 +20,7 @@ import JourneyLog from "./components/JourneyLog/JourneyLog";
 import NewsFeed from "./components/NotificationFeed/NewsFeed";
 import Profile from "./components/Profile/Profile"
 import Footer from "./components/footer/Footer";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 class App extends React.Component {
