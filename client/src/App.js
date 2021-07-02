@@ -179,7 +179,7 @@ class App extends React.Component {
           />
         </Switch>
         {/* <NewsFeed /> */}
-        {/* <Footer/> */}
+        <Footer/>
       </div>
     );
   }
