@@ -21,7 +21,7 @@ class JourneyLog extends Component {
       <section className="container-journeylog">
         <h1>Journey's End Blog</h1>
         <div className="col-md-5">
-          <div className="form-area">
+          <div align="center" className="form-area">
             <form onSubmit={this.handleSubmit}>
               <br styles="clear:both" />
               <div className="form-group">
