@@ -46,3 +46,13 @@
     transform: rotate(360deg);
   }
 }
+.homepage-container {
+  text-justify: left;
+  margin: 0;
+  color: yellow;
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+  box-shadow: black;
+  text-shadow: #020819 8px -5px 9px;
+}
