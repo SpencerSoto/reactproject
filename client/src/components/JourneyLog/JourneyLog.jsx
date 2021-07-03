@@ -19,6 +19,11 @@ class JourneyLog extends Component {
     console.log(this.props);
     return (
       <section className="container-journeylog">
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <h1>Journey's End Blog</h1>
         <div className="col-md-5">
           <div align="center" className="form-area">
@@ -50,6 +55,11 @@ class JourneyLog extends Component {
                 Add Post
               </button>
             </form>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
             <div className="list-container">
               <ul className="journeylog-list">

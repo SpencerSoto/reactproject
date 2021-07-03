@@ -11,14 +11,14 @@
   justify-content: center;
 }
 
-.list-container{
+ .list-container{
   padding-left: 30px;
   padding-top: 40px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   background-color: blanchedalmond;
 
-}
+} 
 
 .journeylog-list{
   list-style-type: none;
