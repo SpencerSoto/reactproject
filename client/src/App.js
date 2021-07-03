@@ -60,10 +60,11 @@ class App extends React.Component {
 
   componentDidMount = () => {
     getJourneylogs().then((result) => {
+      console.log(result)
       this.setState({ journeylogs: result.data.journeylogs });
       console.log(result, "A string ");
     });
-    // potential solution?
+   // potential solution?
     //getJourneylogs = ()=>{
     //   return this.journeylogs.map((eachLog)=>{
     //      return(

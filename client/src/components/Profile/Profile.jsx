@@ -55,23 +55,23 @@ class Profile extends Component {
                     <img style={{width:"160px", height:"160px",borderRadius:"80px"}}
                     src="https://play-lh.googleusercontent.com/TECjsAu9DWLbKBuDl2sDHEUhlTh-n0eTgrHbt-7-a33Fy2p-slkHg8FN6r_dCbKBdA"
                     />
-                    <h2>Profile for {this.user}</h2>
+                    <h2>Profile for Spencer Soto{this.user}</h2>
                 </div>
                 <h1 id='Profile'>Profile</h1>
-                <h3>User Info: Spencer Soto</h3>
+                <h3>Username: Wingz4Lyfe</h3>
                 <h4>Location: Miami</h4> <br></br>
                <p> Our community is dedicated to the Adventures of your Life!</p>
   
                 <div class="profile-work">
-                   
-                    <h2>PINS</h2>
+                   <br></br>
+                    <h2>Friends PINS</h2>
                     {/* {PINS = this.state.user}ß */}
                     {pins}
                     </div>
-                <div className="profile-work">
-                    <h2>Blogs</h2>
+               
+                    {/* <h2>Blogs</h2> */}
                 {/* user={this.state.user} */}
-                </div>
+                
             </div>
   
             // {/* <EditProfile/> */}
